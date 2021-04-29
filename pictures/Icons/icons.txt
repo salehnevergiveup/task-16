@@ -1,0 +1,25 @@
+roller
+<i class="fas fa-paint-roller"></i>
+
+mobail
+<i class="fas fa-mobile-alt"></i>
+
+screen
+<i class="fas fa-desktop"></i>
+
+print
+<i class="fas fa-print"></i>
+
+facebook 
+<i class="fab fa-facebook-f"></i>
+
+Twitter
+<i class="fab fa-twitter"></i>
+
+basketball 
+<i class="fas fa-basketball-ball"></i>
+
+google plus
+
+<i class="fab fa-google-plus-g"></i>
+
