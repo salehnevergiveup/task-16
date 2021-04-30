@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 ul {
@@ -18,10 +19,7 @@ ul {
 }
 
 body {
-    font-family: tahoma, arial;
-    height: 1000px;
-    scroll-behavior: smooth;
-    background-color: #000;
+    font-family: 'Raleway',tahoma,arial;
 }
 
 /* main style end */
@@ -33,7 +31,6 @@ body {
     min-height: 100vh;
     background-size: cover;
     position: relative;
-    margin-bottom: 50px;
     overflow: hidden;
     animation: backgroundslide 10s ease-in-out infinite;
 }
@@ -128,7 +125,7 @@ body {
 }
 
 .showtext {
-    animation: show 1.5s ease-in-out;
+    animation: show 1s ease-in-out;
     animation-fill-mode: forwards;
 }
 
@@ -275,3 +272,46 @@ body {
 }
 
 /* head end */
+
+/* info start */
+
+.info {
+    padding: 100px;
+}
+
+.info .mount {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info .mount img {
+    margin-bottom: 40px;
+}
+
+.p {
+    line-height: 1.7;
+    color: #707070;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* info end */
+
+/* service start */
+
+.service {
+    padding: 50px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.h2 { 
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    color: #1b1b1b;
+    margin: 30px 0; 
+    font-weight: 500;
+}
+
+/* service end */

@@ -58,4 +58,3 @@ active[4].onclick = () => {
     }
 }
 // navbar end
-
