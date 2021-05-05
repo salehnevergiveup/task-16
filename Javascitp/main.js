@@ -65,28 +65,31 @@ active[4].onclick = () => {
 // scroll effect start 
 
 window.onscroll = () => {
-    var content1 = document.querySelector(".scroll1");
-    let content2 = document.querySelector(".scroll2");
+    var content1 = document.querySelectorAll(".scroll1");
+    let content2 = document.querySelectorAll(".scroll2");
     let content3 = document.querySelectorAll(".scroll3");
-    let contentPosition1 = content1.getBoundingClientRect().top;
-    let contentPosition2 = content2.getBoundingClientRect().top;
     let screenPosition = window.innerHeight;
-
-    if (contentPosition1 < screenPosition) {
-        content1.classList.add("activeshow");
-    } else {
-        content1.classList.remove("activeshow");
+    for (let i = 0; i < content1.length; i++) {
+        let contentPosition1 = content1[i].getBoundingClientRect().top;
+        if (contentPosition1 < screenPosition) {
+            content1[i].classList.add("activeshow");
+        } else {
+            content1[i].classList.remove("activeshow");
+        }
     }
-    if (contentPosition2 < screenPosition) {
-        content2.classList.add("activeshow");
-    } else {
-        content2.classList.remove("activeshow");
+    for (let i = 0; i < content2.length; i++) {
+        let contentPosition2 = content2[i].getBoundingClientRect().top;
+        if (contentPosition2 < screenPosition) {
+            content2[i].classList.add("activeshow");
+        } else {
+            content2[i].classList.remove("activeshow");
+        }
     }
     for (let i = 0; i < content3.length; i++) {
         let contentPosition3 = content3[i].getBoundingClientRect().top;
         if (contentPosition3 < screenPosition) {
             setInterval(() => { content3[i].classList.add("activeshow"); }
-                , (i + "000"));
+                , (i + "100"));
         }
         else {
             content3[i].classList.remove("activeshow");
