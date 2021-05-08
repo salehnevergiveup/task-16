@@ -11,6 +11,10 @@ ul {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 :root {
     --yellow: #fce500;
     --gray: #f5f5f5;
@@ -21,7 +25,6 @@ ul {
 body {
     font-family: 'Raleway', tahoma, arial;
     overflow-x: hidden;
-    height: 10000px;
 }
 
 /* main style end */
@@ -563,6 +566,7 @@ body {
 .our-team {
     padding-top: 50px;
     text-align: center;
+    margin-bottom: 100px;
 }
 
 .our-team .container>p {
@@ -614,7 +618,110 @@ body {
     line-height: 24px;
 }
 
+.our-team .box {
+    margin-top: 250px;
+    position: relative;
+}
+
+.our-team .box .line {
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    background-color: var(--yellow);
+}
+
+.our-team .box header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: left;
+    color: #f4f4f4;
+    background-color: #000;
+    padding: 20px;
+    margin-bottom: 35px;
+}
+
+.our-team .box header p:last-child {
+    margin-top: 10px;
+}
+
+.our-team .box footer {
+    padding: 30px;
+    text-align: center;
+    color: #707070;
+}
+
+.our-team .box .big-box {
+    position: relative;
+    top: -170px;
+}
+
+.our-team .box footer div {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 1rem;
+    letter-spacing: normal;
+    color: #000;
+    font-weight: bold;
+}
+
 /* our team end */
+
+/* conatact start */
+
+.contact {
+    background-color: #000;
+    padding: 50px;
+    margin-top: -100px;
+}
+
+.contact img {
+    height: 46px;
+    width: 46px;
+}
+
+.contact p {
+    color: #fff;
+    margin: 25px 0;
+}
+
+.contact p~p {
+    margin: 0 0 10px;
+}
+
+.contact p~p span {
+    color: #fce500;
+}
+
+.contact ul li a {
+    margin-bottom: 20px;
+    display: block;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.contact h4 {
+    color: #fff;
+}
+
+.contact .email {
+    background: var(--yellow);
+    padding: 15px 0;
+    margin: 25px 0 30px;
+    display: block;
+    font-size: 13px;
+    border-radius: 20px;
+    color: #000;
+    text-align: center
+}
+
+.contact ul i {
+    margin-right: 30px;
+    font-size: 25px;
+}
+
+/* conatact end */
 
 @media (max-width: 575px) {
     /* head start */
@@ -638,6 +745,11 @@ body {
         margin-bottom: 0;
     }
     /* portfolio end */
+    /* contact start */
+    .contact ul {
+        margin: 50px 0;
+    }
+    /* contact end */
 }
 
 @media (min-width: 575px) and (max-width: 767px) {
@@ -649,4 +761,9 @@ body {
         margin-bottom: 0;
     }
     /* portfolio end */
+    /* contact start */
+    .contact ul {
+        margin: 50px 0;
+    }
+    /* contact end */
 }
