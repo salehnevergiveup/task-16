@@ -97,4 +97,36 @@ window.onscroll = () => {
     }
 };
 
-// scroll effect end 
+// scroll effect end
+
+//  dark mode start
+let click = document.querySelector(".content div button");
+let clickCont = document.querySelector(".content div");
+let cover = document.querySelector(".page-cover");
+let root = document.querySelector(":root");
+let text = document.querySelectorAll(".service .prograss-card div h4");
+click.onclick = () => {
+    click.classList.toggle("dark-button");
+    click.classList.toggle("light-button");
+    cover.classList.toggle("shadow-show");
+    cover.classList.toggle("shadow-hide");
+    if (click.classList.contains("dark-button")) {
+        clickCont.style = "background: #fff;"
+        click.textContent = "Dark";
+        root.style.setProperty('--grey', '#fff');
+        root.style.setProperty('--white', '#000');
+        for (let i = 0; i < text.length; i++) {
+            text[i].style = "color: #fff";
+        }
+    } else {
+        clickCont.style = "background: #000;"
+        click.textContent = "Light"
+        root.style.setProperty('--grey', '#707070');
+        root.style.setProperty('--white', '#fff');
+        for (let i = 0; i < text.length; i++) {
+            text[i].style = "color: #1b1b1b";
+        }
+    }
+}
+
+//  dark mode end

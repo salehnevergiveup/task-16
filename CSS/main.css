@@ -7,6 +7,15 @@
     scroll-behavior: smooth;
 }
 
+:root {
+    --black: #000;
+    --white: #fff;
+    --yellow: #fce500;
+    --grey: #707070;
+    --dark-white: #f4f4f4;
+    --light-black: #1b1b1b;
+}
+
 ul {
     list-style: none;
 }
@@ -18,9 +27,147 @@ a {
 body {
     font-family: 'Raleway', tahoma, arial;
     overflow-x: hidden;
+    position: relative;
 }
 
+/* dark mode start */
+
+.page-cover {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background: rgb(0 0 0 /.5);
+}
+
+.shadow-show {
+    animation: shadow-show 2s ease-out forwards;
+}
+
+.shadow-hide {
+    animation: shadow-hide 2s ease-out forwards;
+}
+
+.page-cover .content {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    z-index: 3;
+    opacity: .4;
+    transition: all 1s ease-in-out;
+}
+
+.page-cover .content:hover {
+    opacity: 1;
+    transition: all 1s ease-in-out;
+}
+
+@keyframes shadow-show {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 200%;
+    }
+}
+
+@keyframes shadow-hide {
+    100% {
+        width: 0;
+    }
+    0% {
+        width: 200%;
+    }
+}
+
+.page-cover .content div {
+    height: 50px;
+    width: 100px;
+    background-color: #000;
+    position: relative;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.page-cover .content div button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    height: 100%;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+}
+
+.dark-button {
+    animation: button-dark 1s ease-in-out forwards;
+}
+
+.light-button {
+    animation: button-light 1s ease-in-out forwards;
+}
+
+@keyframes button-dark {
+    0% {
+        left: 0;
+        transform: translate(0, -50%);
+        background: #fff;
+        color: #000;
+    }
+    100% {
+        left: 100%;
+        transform: translate(-100%, -50%);
+        background: #000;
+        color: #fff;
+    }
+}
+
+@keyframes button-light {
+    100% {
+        left: 0;
+        transform: translate(0, -50%);
+        background: #fff;
+        color: #000;
+    }
+    0% {
+        left: 100%;
+        transform: translate(-100%, -50%);
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* dark mode end*/
+
 /* main style end */
+
+/* scroll effict start */
+
+.scroll2 {
+    transform: scale(0.1) translateX(-10000px);
+    opacity: 0;
+}
+
+.scroll1, .scroll3 {
+    transform: translatex(5000px);
+    opacity: 0;
+}
+
+.activeshow {
+    transform: scale(1) !important;
+    transition: all 1s ease-in-out;
+    opacity: 1 !important;
+}
+
+/* scroll effict end */
 
 /* head start */
 
@@ -81,7 +228,7 @@ body {
 .head .container .navbar .bar span {
     width: 50px;
     height: 5px;
-    background-color: #fce500;
+    background-color: var(--yellow);
     position: relative;
     display: block;
     border-radius: 20px;
@@ -91,7 +238,7 @@ body {
     content: "";
     width: 40px;
     height: 5px;
-    background-color: #fce500;
+    background-color: var(--yellow);
     position: absolute;
     top: 10px;
     right: 0;
@@ -161,9 +308,9 @@ body {
 }
 
 .head .mainpart .button {
-    background: #fce500;
+    background: var(--yellow);
     padding: 10px 30px;
-    color: #000;
+    color: var(--black);
     cursor: pointer;
 }
 
@@ -212,7 +359,7 @@ body {
 }
 
 .active {
-    color: #fce500 !important;
+    color: var(--yellow) !important;
 }
 
 @keyframes menu-left {
@@ -245,7 +392,7 @@ body {
     position: relative;
     display: inline-block;
     font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-    color: #fff;
+    color: var(--white);
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
@@ -259,7 +406,7 @@ body {
     top: 0;
     left: 0;
     display: inline-block;
-    color: #fce500;
+    color: var(--yellow);
     overflow: hidden;
     white-space: nowrap;
     transition-duration: .5s;
@@ -295,7 +442,7 @@ body {
 
 .p {
     margin: 0 auto;
-    color: #707070;
+    color: var(--grey);
     line-height: 1.7;
 }
 
@@ -304,7 +451,7 @@ body {
 /* service start */
 
 .service {
-    background-color: #f4f4f4;
+    background-color: var(--dark-white);
     padding-top: 50px;
     text-align: center;
 }
@@ -312,7 +459,7 @@ body {
 .h2 {
     margin: 30px 0;
     font-size: clamp(1rem, 1.5vw, 2rem);
-    color: #1b1b1b;
+    color: var(--light-black);
     text-transform: uppercase;
     letter-spacing: 10px;
     font-weight: 500;
@@ -323,7 +470,7 @@ body {
 }
 
 .service .card, .service .prograss-card {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 25px;
     margin: 50px 0 30px;
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
@@ -333,31 +480,15 @@ body {
     font-size: 1rem;
 }
 
-.scroll2 {
-    transform: scale(0.1) translateX(-10000px);
-    opacity: 0;
-}
-
-.scroll1, .scroll3 {
-    transform: translatex(5000px);
-    opacity: 0;
-}
-
-.activeshow {
-    transform: scale(1) !important;
-    transition: all 1s ease-in-out;
-    opacity: 1 !important;
-}
-
 .service .card i {
-    color: #fce500;
+    color: var(--yellow);
     margin-bottom: 30px;
 }
 
 .service .card h3 {
     margin: 0 !important;
     font-size: 20px;
-    color: #707070;
+    color: var(--grey);
     line-height: 1.6;
     letter-spacing: 5px;
 }
@@ -366,6 +497,7 @@ body {
     width: 100%;
     margin-top: 30px;
     line-height: 1.4;
+    color: #707070 !important;
 }
 
 .service .prograss-card {
@@ -388,19 +520,19 @@ body {
 .service .prograss-card .prograss {
     width: 100%;
     height: 5px;
-    background-color: #f4f4f4;
+    background-color: var(--dark-white);
     border-radius: 20px;
 }
 
 .service .prograss-card .prograss span {
     height: 100%;
-    background-color: #fce500;
+    background-color: var(--yellow);
     display: block;
     border-radius: 20px;
 }
 
 .service .stats {
-    background-color: #1b1b1b;
+    background-color: var(--light-black);
     padding: 50px 0;
 }
 
@@ -435,11 +567,11 @@ body {
 }
 
 .portfolio>button {
-    background-color: #fce500;
+    background-color: var(--yellow);
     padding: 15px 15px;
     margin: 100px 0;
     font-size: 10px;
-    color: #1b1b1b;
+    color: var(--light-black);
     font-weight: bold;
     letter-spacing: 4px;
     border: none;
@@ -454,8 +586,8 @@ body {
     margin: 25px 0;
     display: flex;
     justify-content: space-around;
-    border-top: 2px solid #1b1b1b;
-    border-bottom: 2px solid #1b1b1b;
+    border-top: 2px solid var(--light-black);
+    border-bottom: 2px solid var(--light-black);
 }
 
 .portfolio ul .black-logo {
@@ -465,7 +597,7 @@ body {
 
 .portfolio ul li a {
     font-size: 20px;
-    color: #1b1b1b;
+    color: var(--light-black);
     text-transform: uppercase;
     text-decoration: 0;
 }
@@ -477,7 +609,7 @@ body {
 
 .branding {
     width: 100%;
-    background-color: #f4f4f4;
+    background-color: var(--dark-white);
     display: flex;
     justify-content: space-evenly;
     margin-bottom: -20px !important;
@@ -485,7 +617,7 @@ body {
 
 .branding .row div div {
     height: 300px;
-    background-color: #000;
+    background-color: var(--black);
 }
 
 .branding .grey {
@@ -501,7 +633,7 @@ body {
 .branding .grey div div {
     width: 100%;
     height: 60%;
-    background-color: #ffffff;
+    background-color: var(--white)fff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -513,13 +645,13 @@ body {
 .branding .grey div div h4 {
     margin: 10px 0;
     font-size: 12px;
-    color: #707070;
+    color: var(--grey);
     letter-spacing: 1px;
 }
 
 .branding .grey div div p {
     font-size: 12px;
-    color: #707070;
+    color: var(--grey);
     line-height: 24px;
     letter-spacing: 1px;
 }
@@ -528,7 +660,7 @@ body {
     content: " ";
     width: 80%;
     height: 80%;
-    background-color: #fce500;
+    background-color: var(--yellow);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -538,7 +670,7 @@ body {
 
 .view-video {
     width: 100%;
-    background: #000;
+    background: var(--black);
     padding: 100px 0;
     text-align: center;
 }
@@ -546,10 +678,10 @@ body {
 .view-video button {
     background-color: transparent;
     padding: 20px 15px;
-    color: #fce500;
+    color: var(--yellow);
     text-transform: uppercase;
     letter-spacing: 10px;
-    border: 2px solid #fce500;
+    border: 2px solid var(--yellow);
 }
 
 /* portfolio end */
@@ -573,14 +705,14 @@ body {
 
 .our-team .container .card header {
     height: 300px;
-    background-color: #000;
+    background-color: var(--black);
     display: flex;
     align-items: flex-end;
 }
 
 .our-team .container .card header h4 {
     width: 100%;
-    background-color: #fce500;
+    background-color: var(--yellow);
     padding: 20px 0;
     margin: 0;
     font-size: 15px;
@@ -619,15 +751,15 @@ body {
 .our-team .box .line {
     width: 100%;
     height: 200px;
-    background-color: #fce500;
+    background-color: var(--yellow);
     position: absolute;
 }
 
 .our-team .box header {
-    background-color: #000;
+    background-color: var(--black);
     padding: 20px;
     margin-bottom: 35px;
-    color: #f4f4f4;
+    color: var(--dark-white);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -642,7 +774,7 @@ body {
 .our-team .box footer {
     padding: 30px;
     text-align: center;
-    color: #707070;
+    color: var(--grey);
 }
 
 .our-team .box .big-box {
@@ -652,7 +784,7 @@ body {
 
 .our-team .box footer div {
     font-size: 1rem;
-    color: #000;
+    color: var(--black);
     text-align: left;
     text-transform: uppercase;
     letter-spacing: normal;
@@ -664,7 +796,7 @@ body {
 /* conatact start */
 
 .contact {
-    background-color: #000;
+    background-color: var(--black);
     padding: 50px;
     margin-top: -100px;
 }
@@ -684,7 +816,7 @@ body {
 }
 
 .contact p~p span {
-    color: #fce500;
+    color: #fff;
 }
 
 .contact ul li a {
@@ -699,12 +831,12 @@ body {
 }
 
 .contact .email {
-    background: #fce500;
+    background: var(--yellow);
     display: block;
     padding: 15px 0;
     margin: 25px 0 30px;
     font-size: 13px;
-    color: #000;
+    color: var(--black);
     text-align: center;
     border-radius: 20px;
 }
@@ -722,7 +854,7 @@ body {
         letter-spacing: normal;
     }
     /* head end */
-    /* info start  */
+    /* info start */
     .info .mount p {
         width: 100%;
     }
